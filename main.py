@@ -108,8 +108,8 @@ class MultipleChoiceQuestion(Question):
         self.correct_option_index: int = correct_option_index
 
     def validate(self) -> bool:
-        """Validates if options and correct_option_index are valid"""
-        return (len(self.options) > 1 and
+      """Validates if options and correct_option_index are valid"""
+      return (len(self.options) > 1 and
                 0 <= self.correct_option_index < len(self.options))
 
     def format(self) -> str:
@@ -205,7 +205,7 @@ class OpenEndedQuestion(Question):
         """
         Checks if the response contains required keywords and meets minimum length.
         Note: In practice, this would likely use more sophisticated NLP techniques.
-        """
+          """
         words = response.split()
         if len(words) < self.min_words:
             return False
