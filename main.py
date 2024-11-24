@@ -108,8 +108,8 @@ class MultipleChoiceQuestion(Question):
         self.correct_option_index: int = correct_option_index
 
     def validate(self) -> bool:
-        """Validates if options and correct_option_index are valid"""
-        return (len(self.options) > 1 and
+      """Validates if options and correct_option_index are valid"""
+      return (len(self.options) > 1 and
                 0 <= self.correct_option_index < len(self.options))
 
     def format(self) -> str:
@@ -205,7 +205,7 @@ class OpenEndedQuestion(Question):
         """
         Checks if the response contains required keywords and meets minimum length.
         Note: In practice, this would likely use more sophisticated NLP techniques.
-        """
+          """
         words = response.split()
         if len(words) < self.min_words:
             return False
@@ -314,3 +314,66 @@ class LLMService:
     def validate_response(self, question: str, response: str) -> bool:
         """Validates responses using the language model"""
         pass
+
+class FeedbackManager:
+    """
+    Manages feedback for each generated question.
+    Feedback is stored as positive or negative per question ID.
+    """
+
+    def __init__(self):
+        self.feedback_data: Dict[UUID, Dict[str, int]] = {}
+
+    def add_feedback(self, question_id: UUID, is_positive: bool):
+        if not isinstance(question_id, UUID):
+            raise ValueError("Invalid question_id: Must be a UUID instance.")
+        if not isinstance(is_positive, bool):
+            raise TypeError("Invalid feedback type: Must be a boolean value.")
+
+        if question_id not in self.feedback_data:
+            self.feedback_data[question_id] = {'positive': 0, 'negative': 0}
+        if is_positive:
+            self.feedback_data[question_id]['positive'] += 1
+        else:
+            self.feedback_data[question_id]['negative'] += 1
+
+
+    def get_feedback(self, question_id: UUID):
+        if not isinstance(question_id, UUID):
+            raise ValueError("Invalid question_id: Must be a UUID instance.")
+        return self.feedback_data.get(question_id, {'positive': 0, 'negative': 0})
+
+
+class DifficultyManager:
+    """
+    Static DifficultyManager for setting an initial difficulty level at the
+    start of a test session.
+    """
+
+    def __init__(self, llm_service: LLMService):
+        self.llm_service = llm_service
+        self.selected_difficulty = None
+
+    def set_initial_difficulty(self, difficulty: DifficultyLevel):
+        """Sets the initial difficulty level for the test session."""
+        if not isinstance(difficulty, DifficultyLevel):
+            raise ValueError("Invalid difficulty level.")
+        self.selected_difficulty = difficulty
+
+    def get_current_difficulty(self) -> DifficultyLevel:
+        """Retrieves the currently selected difficulty level."""
+        if self.selected_difficulty is None:
+            raise RuntimeError("Difficulty level has not been set. Call set_initial_difficulty first.")
+        return self.selected_difficulty
+
+    def apply_difficulty_to_llm(self, topic: HFTopic):
+        """
+        Generates a question with the fixed difficulty setting by passing
+        it to the LLMService.
+        """
+        if self.selected_difficulty is None:
+            raise RuntimeError("Difficulty level not set. Call set_initial_difficulty first.")
+        if not isinstance(topic, HFTopic):
+            raise ValueError("Invalid topic: Must be an instance of HFTopic enum.")
+
+        return self.llm_service.generate_question(topic, self.selected_difficulty)
