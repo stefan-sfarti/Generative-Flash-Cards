@@ -1,0 +1,104 @@
+/* General styling pentru aplicație */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Elimină scroll-ul global */
+}
+
+.app {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    height: 100vh; /* Folosim 100vh pentru a ocupa întreaga înălțime a paginii */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Înlătură scroll-ul aplicației */
+}
+
+/* Bara portocalie */
+.header {
+    display: flex;
+    background-color: #ff7f00;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 14.3vh; /* Header-ul va ocupa 1/6 din înălțimea totală */
+    width: 100%; /* Asigură că header-ul acoperă întreaga lățime */
+}
+
+/* Corpul aplicației (body) */
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 85.7vh; /* Restul de 5/6 din înălțimea paginii */
+    margin-top: 16.6vh; /* Distanță pentru a lăsa spațiu sub header */
+    width: 100%;
+    overflow: hidden; /* Previne scroll-ul în interiorul corpului */
+    box-sizing: border-box;
+}
+
+/* Flashcard container */
+.flashcard-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+    overflow: hidden; /* Previne scroll-ul inutil */
+}
+
+/* Flashcard styling */
+.flashcard {
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    height: 60vh;
+    width: 70vw;
+    max-width: 700px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Butoane de navigație */
+.nav-button {
+    background-color: #ff7f00;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 1.5rem 3rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+/* Buton de salvare */
+.save-button {
+    background-color: #28a745;
+    color: white;
+    padding: 1.5rem 3rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    margin: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Design responsive pentru ecrane mari */
+@media (min-width: 768px) {
+    .nav-button {
+        padding: 2rem 4rem;
+    }
+    .save-button {
+        padding: 2rem 4rem;
+    }
+}

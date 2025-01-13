@@ -1,0 +1,93 @@
+#root {
+
+}
+.header {
+    display: flex;
+    background-color: #ff7f00;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 14.3vh; /* Header-ul va ocupa 1/6 din înălțimea totală */
+    width: 100%; /* Asigură că header-ul acoperă întreaga lățime */
+}
+
+
+.flash-card-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrează elementele pe orizontală */
+    justify-content: flex-start;
+    overflow-y: auto; /* Elemente aliniate în partea de sus pe verticală */
+    height: 85.7vh; /* Restul de 5/6 din înălțimea paginii */
+    margin-top: 16.6vh; /* Distanță pentru a lăsa spațiu sub header */
+    width: 100%; /* Previne scroll-ul în interiorul corpului */
+    box-sizing: border-box;
+
+
+}
+
+
+
+.header {
+    font-family: Arial, sans-serif;
+    align-items: center;
+    background-color: #ff7f00;
+    color: white;
+}
+
+.card-list {
+    padding: 10px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.card {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.card-info {
+    flex: 1;
+}
+
+.card-info h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.card-info p {
+    margin: 5px 0 0 0;
+    color: #666;
+}
+
+.card-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.card-meta span {
+    font-size: 12px;
+    color: #888;
+}
+
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}

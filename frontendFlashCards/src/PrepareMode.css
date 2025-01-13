@@ -1,0 +1,195 @@
+/* General styling pentru aplicație */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Elimină scroll-ul global */
+}
+.app {
+  font-family: Arial, sans-serif;
+
+  background-color: #f4f4f9;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+/* Bara portocalie */
+.header {
+  background-color: #ff7f00;
+  width: 100%;
+  padding: 0.5rem 0;
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 5rem;
+}
+.header-text{
+  margin: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Flashcard container */
+.flashcard-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 7rem;
+  gap: 3rem;
+  width: 100vw;
+}
+
+.flashcard-header{
+  background-color: #ff7f00;
+  width: 100%;
+  height:10vh;
+  border-top-left-radius:1rem;
+  border-top-right-radius:1rem;
+  diplay:flex;
+  justify-content: left;
+}
+/* Flashcard styling */
+.flashcard {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  height: 60vh;
+  width: 70vw;
+  max-width: 700px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.flashcard-title {
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-top:2vh;
+  text-align: left;
+  line-height: 6vh;
+    padding-left: 5%;
+  width: 90%;
+  height:4vh;
+  min-height:20px;
+
+  border-radius: 15px;
+}
+.cardcont{
+
+  height:100%;
+
+}
+.flashcard-description {
+  color: #555;
+  font-size:2.3vh;
+  line-height: 1.8;
+  padding-top: 5%;
+  padding-left: 5%;
+  width:90%;
+  height: 80%;
+  word-wrap: break-word; /* Break words if necessary */
+  overflow-wrap: break-word; /* Ensures words break in modern browsers */
+  white-space: normal;
+
+}
+.flashcard-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+/* Butoane de navigație */
+.nav-button {
+  background-color: #ff7f00;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 1.5rem 3rem;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #e66f00;
+}
+.feedback {
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.feedback.correct {
+  color: green;
+}
+
+.feedback.incorrect {
+  color: red;
+}
+/* Buton de salvare */
+.save-button {
+  background-color: #28a745;
+  color: white;
+  padding: 1.5rem 3rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  margin: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.save-button:hover {
+  background-color: #218838;
+}
+.back-button {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ff7f00;
+  color: #ffffff;
+
+  border: 2px solid #ff7f00;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #ffffff;
+  color: #ff7f00;
+}
+
+
+/* Design responsive pentru ecrane mari */
+@media (min-width: 768px) {
+
+
+
+  .nav-button {
+    padding: 2rem 4rem;
+  }
+
+  .save-button {
+    padding: 2rem 4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+
+}

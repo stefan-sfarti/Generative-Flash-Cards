@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "question": "What is the capital of France?",
+    "answers": ["Berlin", "Madrid", "Paris", "Rome"],
+    "correctAnswer": "Paris"
+  },
+  {
+    "id": 2,
+    "question": "What is 2 + 2?",
+    "answers": ["3", "4", "5", "6"],
+    "correctAnswer": "4"
+  },
+  {
+    "id": 3,
+    "question": "What is the capital of France?",
+    "answers": ["Berlin", "Madrid", "Paris", "Rome"],
+    "correctAnswer": "Paris"
+  },
+  {
+    "id": 4,
+    "question": "What is 2 + 2?",
+    "answers": ["3", "4", "5", "6"],
+    "correctAnswer": "4"
+  },
+  {
+    "id": 5,
+    "question": "What is the capital of France?",
+    "answers": ["Berlin", "Madrid", "Paris", "Rome"],
+    "correctAnswer": "Paris"
+  },
+  {
+    "id": 6,
+    "question": "What is 2 + 2?",
+    "answers": ["3", "4", "5", "6"],
+    "correctAnswer": "4"
+  },
+  {
+    "id": 7,
+    "question": "What is the capital of France?",
+    "answers": ["Berlin", "Madrid", "Paris", "Rome"],
+    "correctAnswer": "Paris"
+  },
+  {
+    "id": 8,
+    "question": "What is 2 + 2?",
+    "answers": ["3", "4", "5", "6"],
+    "correctAnswer": "4"
+  },
+  {
+    "id": 9,
+    "question": "What is the capital of France?",
+    "answers": ["Berlin", "Madrid", "Paris", "Rome"],
+    "correctAnswer": "Paris"
+  },
+  {
+    "id": 10,
+    "question": "What is 2 + 2?",
+    "answers": ["3", "4", "5", "6"],
+    "correctAnswer": "4"
+  },
+  {
+    "id": 11,
+    "question": "What is the capital of France?",
+    "answers": ["Berlin", "Madrid", "Paris", "Rome"],
+    "correctAnswer": "Paris"
+  },
+  {
+    "id": 12,
+    "question": "What is 2 + 2?",
+    "answers": ["3", "4", "5", "6"],
+    "correctAnswer": "4"
+  },
+  {
+    "id": 13,
+    "question": "What is the capital of France?",
+    "answers": ["Berlin", "Madrid", "Paris", "Rome"],
+    "correctAnswer": "Paris"
+  },
+  {
+    "id": 14,
+    "question": "What is 2 + 2?",
+    "answers": ["3", "4", "5", "6"],
+    "correctAnswer": "4"
+  },
+  {
+    "id": 15,
+    "question": "What is the capital of France?",
+    "answers": ["Berlin", "Madrid", "Paris", "Rome"],
+    "correctAnswer": "Paris"
+  },
+  {
+    "id": 16,
+    "question": "What is 2 + 2?",
+    "answers": ["3", "4", "5", "6"],
+    "correctAnswer": "4"
+  }
+]

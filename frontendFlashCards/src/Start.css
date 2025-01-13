@@ -1,0 +1,54 @@
+/* Container general */
+.container {
+    display: flex;
+    justify-content: space-between; /* Spațiu între secțiuni */
+    align-items: center; /* Aliniere verticală la mijloc */
+    height: 100vh; /* Face containerul să ocupe întreaga înălțime a paginii */
+
+    font-family: "Arial", sans-serif;
+}
+
+/* Secțiunea fiecărui mod */
+.mode-section {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #333;
+    color: white;
+    height: 80%; /* Face secțiunea să ocupe 80% din înălțimea containerului */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Grupul de butoane */
+.button-group {
+    margin-top: 20px;
+}
+
+/* Stilul pentru fiecare buton */
+.option-button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Stilul pentru butonul selectat */
+.option-button.selected {
+    background-color: #4caf50;
+    color: white;
+    border-color: #4caf50;
+}
+
+/* Efect la hover */
+.option-button:hover {
+    background-color: #d9d9d9;
+    transform: scale(1.05);
+}
