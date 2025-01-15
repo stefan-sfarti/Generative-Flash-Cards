@@ -20,9 +20,6 @@ class Question(BaseModel):
     question: str
     options: List[str]
     correct_answer: str
-    explanation: str
-    source: QuestionSource
-    difficulty: QuestionDifficulty
 
 
 class GenerationRequest(BaseModel):
