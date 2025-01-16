@@ -150,13 +150,24 @@ class MistralModelService(ModelService):
         except Exception as e:
             self.logger.error(f"Error parsing question output: {str(e)}")
             return None, None, None
+
+    def get_random_chunk(self) -> str:
+        """Get a random chunk from the vector store"""
+        # Get all documents from the collection
+        results = self.vector_store.get()
+        if not results or not results['documents']:
+            raise ValueError("No documents found in vector store")
+
+        # Select a random document
+        random_doc = random.choice(results['documents'])
+        return random_doc
+
     async def generate_question(self, request: GenerationRequest) -> Question:
         if not self._is_ready:
             raise RuntimeError("Model not initialized")
 
         try:
-            retriever = self.vector_store.as_retriever(search_kwargs={"k": 1})
-
+            context = self.get_random_chunk()
             # Update prompt to request a natural language formatted question
             prompt = PromptTemplate(
                 template="""Based on the following medical context, generate a multiple choice question in exactly this format:
@@ -175,20 +186,17 @@ class MistralModelService(ModelService):
                 input_variables=["context"]
             )
 
-            qa_chain = RetrievalQA.from_chain_type(
+            chain = LLMChain(
                 llm=self.llm,
-                chain_type="stuff",
-                retriever=retriever,
-                chain_type_kwargs={
-                    "prompt": prompt,
-                    "output_key": "result"
-                },
+                prompt=prompt,
             )
 
-            # Request the AI to generate a question
-            result = await qa_chain.ainvoke({"query": "Random selection"})
-            self.logger.info(f"LLM raw output: {result['result']}")
-            question, options, correct_answer = self.parse_question_output(result['result'])
+            # Generate the question using the random chunk
+            result = await chain.arun(context=context)
+
+            self.logger.info(f"Using context: {context[:100]}...")  # Log first 100 chars of context
+            self.logger.info(f"LLM raw output: {result}")
+            question, options, correct_answer = self.parse_question_output(result)
 
             return Question(
                 question=question,
