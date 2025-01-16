@@ -3,6 +3,7 @@ from src.domain.interfaces import QuestionService, CacheService, ModelService, Q
 import asyncio
 import logging
 from fastapi import HTTPException
+from src.domain.models import Question
 
 
 class DefaultQuestionService(QuestionService):
@@ -22,6 +23,7 @@ class DefaultQuestionService(QuestionService):
         question = None
         try:
             question = await self.model_service.generate_question(request)
+            print("question:" + str(question))
         except Exception as e:
             self.logger.error(f"Failed to generate question from model service: {str(e)}")
             raise HTTPException(status_code=500, detail=f"Failed to generate question from model service: {str(e)}")
@@ -36,7 +38,6 @@ class DefaultQuestionService(QuestionService):
             self.logger.error(f"Failed to cache question: {str(e)}")
 
         return question
-
     async def generate_and_cache_questions(self, request: GenerationRequest, count: int) -> None:
         for _ in range(count):
             try:

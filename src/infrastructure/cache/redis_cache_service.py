@@ -1,4 +1,5 @@
-import redis.asyncio as redis
+import redis.asyncio as redisasync
+import redis.exceptions
 import json
 from typing import Optional
 from src.domain.interfaces import CacheService, Question
@@ -11,7 +12,7 @@ class RedisCacheService(CacheService):
 
     def __init__(self, redis_host: str, redis_port: int, redis_db: int):
         try:
-            self.redis_client = redis.Redis(host=redis_host, port=redis_port, db=redis_db)
+            self.redis_client = redisasync.Redis(host=redis_host, port=redis_port, db=redis_db)
             self.logger.info("Successfully connected to redis.")
         except redis.exceptions.RedisError as e:
             self.logger.error(f"Error initializing redis: {str(e)}")
