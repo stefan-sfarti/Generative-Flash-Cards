@@ -25,7 +25,7 @@ from langchain_huggingface import HuggingFacePipeline
 from transformers import pipeline
 
 
-class MistralModelService(ModelService):
+class PhiModelService(ModelService):
     def __init__(self, model_path: str = None, device="cuda:0"):
         if not torch.cuda.is_available():
             raise RuntimeError("CUDA device not available")

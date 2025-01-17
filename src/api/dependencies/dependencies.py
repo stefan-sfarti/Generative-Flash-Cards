@@ -1,6 +1,6 @@
 # src/api/dependencies/dependencies.py
 import os
-from src.infrastructure.model.llm_service import MistralModelService
+from src.infrastructure.model.llm_service import PhiModelService
 from src.infrastructure.cache.redis_cache_service import RedisCacheService
 from src.application.question_service import DefaultQuestionService
 from dotenv import load_dotenv
@@ -19,7 +19,7 @@ def get_model_service():
    global _model_service
    if _model_service is None:
         model_path = "./mistral_mcq_final"
-        _model_service = MistralModelService(model_path=model_path)
+        _model_service = PhiModelService(model_path=model_path)
    return _model_service
 
 def get_cache_service():
