@@ -56,7 +56,7 @@ html, body {
   height:10vh;
   border-top-left-radius:1rem;
   border-top-right-radius:1rem;
-  diplay:flex;
+  display:flex;
   justify-content: left;
 }
 /* Flashcard styling */
