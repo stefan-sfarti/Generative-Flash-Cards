@@ -56,8 +56,6 @@ class PhiModelService(ModelService):
                 device_map="auto"  # Let accelerate handle device placement
             )
 
-            self.logger.info(f"Base model device: {next(base_model.parameters()).device}")
-
             # Create pipeline without device specification
             pipe = pipeline(
                 "text-generation",
@@ -92,11 +90,6 @@ class PhiModelService(ModelService):
                 collection_name=self.collection_name,
                 embedding_function=self.embedding_model,
             )
-
-            # Log devices for debugging
-            self.logger.info(f"Base model device: {next(base_model.parameters()).device}")
-            if hasattr(self.embedding_model, 'model'):
-                self.logger.info(f"Embedding model device: {next(self.embedding_model.model.parameters()).device}")
 
             self._is_ready = True
 
@@ -189,13 +182,11 @@ class PhiModelService(ModelService):
             chain = LLMChain(
                 llm=self.llm,
                 prompt=prompt,
+                output_key="text",
             )
 
             # Generate the question using the random chunk
             result = await chain.arun(context=context)
-
-            self.logger.info(f"Using context: {context[:100]}...")  # Log first 100 chars of context
-            self.logger.info(f"LLM raw output: {result}")
             question, options, correct_answer = self.parse_question_output(result)
 
             return Question(
