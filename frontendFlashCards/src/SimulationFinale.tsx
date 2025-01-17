@@ -1,5 +1,5 @@
 import React from 'react';
-import './SimulationFinale.css';
+import './styles/SimulationFinale.css';
 
 type FlashCard = {
     id: number;

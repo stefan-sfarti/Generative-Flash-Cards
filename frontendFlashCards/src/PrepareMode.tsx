@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
  // Importă useNavigate
-import "./PrepareMode.css";
+import "./styles/PrepareMode.css";
 import questions from "./questions.json";
 
 type Question = {

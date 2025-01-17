@@ -1,5 +1,5 @@
 import React from "react";
-import "./Start.css";
+import "./styles/Start.css";
 
 type StartProps = {
     onStart: (questionsCount: number, type: number) => void;
